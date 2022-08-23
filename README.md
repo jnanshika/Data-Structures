@@ -1,2 +1,2 @@
 # Data-Structures
-Just another Engineer trying to learn Data Dtructures using C++.
+Just another Engineer trying to learn Data Structures using C++.
