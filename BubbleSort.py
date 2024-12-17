@@ -1,30 +1,22 @@
 def bubbleSort(nums):
-    length = len(nums) - 1
-    while length > 0:
-        #best case: if array is already sorted
-        didSwap = 0
-
-        #repeatedly swap elements, after every pass the greatest element in unsorted array will be at end 
-        for i in range (0, length):
-            if nums[i] > nums[i+1]:
-                nums[i], nums[i+1] = nums[i+1], nums[i]
-                didSwap = 1
-
-        #no change in the array was made
-        if didSwap == 0:
-            break
+    n = len(nums)
+    # Outer loop for passes
+    for i in range(n - 1):  
+        # Best case: check if swapping happens
+        swapped = False  
+        # Inner loop for comparing adjacent elements
+        for j in range(n - i - 1):  
+            if nums[j] > nums[j + 1]:  
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]  # Swap
+                swapped = True  
         
-        #reducing length as the last elements now will be sorted
-        length -= 1
-
+        # If no elements were swapped, the array is already sorted
+        if not swapped:
+            break  
     return nums
 
-# Taking input from the user
-input_str = input("Enter numbers separated by spaces: ")
-nums = list(map(int, input_str.split()))
-
-print("Unsorted array:", nums)
-
-nums = bubbleSort(nums)
-
-print("Sorted array:", nums)
+# Example Usage
+nums = [64, 25, 12, 22, 11]
+print("Unsorted Array:", nums)
+sorted_nums = bubbleSort(nums)
+print("Sorted Array:", sorted_nums)
