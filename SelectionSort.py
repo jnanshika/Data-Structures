@@ -1,9 +1,21 @@
-def selectionSort( nums ):
-    for i in range (0,len(nums)-1):
-        for j in range (i, len(nums)):
-            if nums[i] > nums[j]:
-                nums[i], nums[j]  = nums[j], nums[i]
-    return nums
-nums= [2,4,5,7,1,3,6]
-nums = selectionSort(nums)
-print(nums)
+def selectionSort(arr):
+    length = len(arr)
+    #outer loop to track the starting element
+    for i in range(0, length-1):
+        # let the current index has the minimum value
+        min_index= i
+
+        # inner loop to find the index of the minimum element in the unsorted portion
+        for j in range (i+1, length):
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        # Swap the found minimum element with the first element of the unsorted portion
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    
+    return arr
+
+arr = [64, 25, 12, 22, 11]
+print("Unsorted array:", arr)
+sorted_arr = selectionSort(arr)
+print("Sorted array:", sorted_arr)
